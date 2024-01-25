@@ -1,3 +1,7 @@
+/*Filename: p2.cpp
+ *Author: MIDN Ronny Saini
+ *Converting Back to Binary
+ */
 #include <iostream>
 using namespace std;
 

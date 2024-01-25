@@ -1,3 +1,8 @@
+/*Filename: p1.cpp
+ *Author: MIDN Ronny Saini
+ *
+ *Reading binary numbers
+ */
 #include <iostream> 
 using namespace std;
 
