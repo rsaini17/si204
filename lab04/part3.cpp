@@ -1,6 +1,6 @@
 /*Author: MIDN Ronny Saini
- *Filename: part2.cpp
- *more summarizing with min and max
+ *Filename: part3.cpp
+ *Output files
 */
 #include <iostream>
 #include <fstream>
@@ -20,7 +20,7 @@ int main(){
   }
 
   //declare variables
-  string junk, date, minD, maxD;
+  string junk,` date, minD, maxD;
   double min = 0, max = 0, temp, total, count = 0;
   fin >> junk >> junk;
   
@@ -48,4 +48,5 @@ int main(){
 
   return 0;
 }
+
 

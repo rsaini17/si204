@@ -1,5 +1,5 @@
 /*Author: MIDN Ronny Saini
- *Filename: part2.cpp
+ *Filename: part1.cpp
  *more summarizing with min and max
 */
 #include <iostream>
@@ -22,16 +22,16 @@ int main(){
   //declare variables
   string junk;
   double temp, total, count = 0;
-  fin >> junk > junk;
+  fin >> junk >> junk;
   
-  while (fin > junk > temp){
+  while (fin >> junk >> junk >> temp){
     total = total + temp;
     count++;
   }
 
   //find avg and then convert to F
-  total = total/avg;
-  total = (9/5)*total + 32;
+  total = total/count;
+  total = (9.0/5)*total + 32;
 
   cout << "file: " << filename << endl << "ave: " << total << endl;
 
