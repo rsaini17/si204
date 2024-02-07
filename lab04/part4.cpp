@@ -1,6 +1,6 @@
 /*Author: MIDN Ronny Saini
- *Filename: part3.cpp
- *Output files
+ *Filename: part4.cpp
+ *out file to plot in spreadsheet
 */
 #include <iostream>
 #include <fstream>
@@ -27,11 +27,15 @@ int main(){
   fin >> junk >> junk;
   
   //print out
-  fout << "day\thour\ttemp" << endl;
 
   while (fin >> date >> hour >> junk >> temp){
-    fout << date << "\t" << hour+1 << "\t" << (9.0/5)*temp + 32
-      << endl;
+    if (hour == 0){
+      fout << date << "\t" << (9.0/5)*temp + 32 << "\t";
+    } else if (hour == 23){
+      fout << (9.0/5)*temp + 32 << endl;
+    } else {
+      fout << (9.0/5)*temp + 32 << "\t";
+    }
     total = total + temp;
     count++;
     if (temp < min){
@@ -52,10 +56,11 @@ int main(){
 
   cout << "file: " << filename << endl << "ave: " << total << endl
     << "min: " << min << " on " << minD << endl
-    << "max: " << max << " on " << maxD << endl << "output in: "
+    << "max: " << max << " on " << maxD << endl << "output in: " 
     << outFile << endl;
 
   return 0;
 }
+
 
 

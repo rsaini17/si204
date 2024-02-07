@@ -43,7 +43,8 @@ int main(){
   min = (9.0/5)*min + 32;
   max = (9.0/5)*max + 32;
 
-  cout << "file: " << filename << endl << "ave: " << total << endl << "min: " << min << " on " << minD << endl
+  cout << "file: " << filename << endl << "ave: " << total 
+    << endl << "min: " << min << " on " << minD << endl
     << "max: " << max << " on " << maxD << endl;
 
   return 0;
