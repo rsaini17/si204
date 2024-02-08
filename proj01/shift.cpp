@@ -80,7 +80,7 @@ int main(){
           if (j < colShift){
             fout << r2 << " " << g2 << " " << b2 << " ";
           }
-          else if (j > width1 + colShift){
+          else if (j >= width1 + colShift){
             fout << r2 << " " << g2 << " " << b2 << " ";
           }
           else {
