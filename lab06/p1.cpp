@@ -1,5 +1,5 @@
 /*Author: MIDN Ronny Saini
- *Filename: part1.cpp
+ *Filename: p1.cpp
  *Lets Roll
  */
 

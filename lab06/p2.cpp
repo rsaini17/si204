@@ -1,8 +1,14 @@
+/*Author: MIDN Ronny Saini
+ *Filename: p2.cpp
+ *Craps
+ */
+
+
 #include <cstdlib>
 #include <iostream>
 using namespace std;
 
-// Function to simulate a single roll of a single 6-sided die
+// Function to roll die
 int rolldie() {
     int roll;
     bool notValid = true;
@@ -15,7 +21,7 @@ int rolldie() {
     return roll;
 }
 
-// Function to simulate a single throw of two dice and process the role within the game
+// Function to roll 2 die and check sum
 int throwdice() {
     int roll1 = rolldie();
     int roll2 = rolldie();
@@ -23,10 +29,14 @@ int throwdice() {
 
     cout << "Player rolled " << roll1 << " + " << roll2 << " = " << sum;
     
-    if (sum == 7 || sum == 11)
+    if (sum == 7 || sum == 11){
         cout << " Player wins!" << endl;
-    else if (sum == 2 || sum == 3 || sum == 12)
+        return 0;
+    }
+    else if (sum == 2 || sum == 3 || sum == 12) {
         cout << " House wins!" << endl;
+        return -1;
+    }
     else
         cout << " roll again" << endl;
     
