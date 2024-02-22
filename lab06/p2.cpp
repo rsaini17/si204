@@ -44,13 +44,11 @@ int throwdice() {
 }
 
 int main() {
-    // Seed
     int seed;
     cout << "Enter seed value: ";
     cin >> seed;
     srand(seed);
   
-    // Play Craps
     int result;
     while (true) {
         result = throwdice();

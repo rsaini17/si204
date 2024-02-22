@@ -1,3 +1,8 @@
+/*Author: MIDN Ronny Saini
+ *filename: p3.cpp
+ *Craps improved
+*/
+
 #include <cstdlib>
 #include <iostream>
 using namespace std;
@@ -15,7 +20,7 @@ int rolldie() {
     return roll;
 }
 
-// Function to simulate a single throw of two dice and process the role within the game
+// Function to roll 2 die and check sum
 int throwdice(int& setpoint) {
     int roll1 = rolldie();
     int roll2 = rolldie();
@@ -36,7 +41,7 @@ int throwdice(int& setpoint) {
             setpoint = sum;
             cout << " setpoint is " << setpoint << "!" << endl;
         }
-    } else { // Subsequent rolls
+    } else { // After first rolls
         if (sum == setpoint) {
             cout << " Player wins!" << endl;
             return 0;
@@ -52,16 +57,13 @@ int throwdice(int& setpoint) {
 }
 
 int main() {
-    // Seed
     int seed;
+    cout << "Enter seed value: ";
+    cin >> seed;
+    srand(seed);
+    int setpoint = 0; 
     char playAgain;
     while (true) {
-        cout << "Enter seed value: ";
-        cin >> seed;
-        srand(seed);
-
-        // Play Craps
-        int setpoint = 0;
         int result;
         while (true) {
             result = throwdice(setpoint);
@@ -71,8 +73,9 @@ int main() {
 
         cout << "Play again? (y/n): ";
         cin >> playAgain;
-        if (playAgain != 'y' && playAgain != 'Y')
+        if (playAgain != 'y'){
             break;
+        }
     }
 
     return 0;
