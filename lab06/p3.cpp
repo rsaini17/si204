@@ -21,7 +21,7 @@ int rolldie() {
 }
 
 // Function to roll 2 die and check sum
-int throwdice(int& setpoint) {
+int throwdice(int setpoint) {
     int roll1 = rolldie();
     int roll2 = rolldie();
     int sum = roll1 + roll2;
