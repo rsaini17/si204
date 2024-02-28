@@ -20,40 +20,52 @@ int rolldie() {
     return roll;
 }
 
-// Function to roll 2 die and check sum
-int throwdice(int& setpoint) {
+
+
+//Function for first case
+int throwdice(){
+  int roll1 = rolldie();
+  int roll2 = rolldie();
+  int sum = roll1 + roll2;
+
+  cout << "Player rolled " << roll1 << " + " << roll2 << " = " << sum;
+
+  if (sum == 7 || sum == 11){
+    cout << " Player wins!" << endl;
+    return 0;
+  } 
+  else if (sum == 2 || sum == 3 || sum == 12){
+    cout << " House wins!" << endl;
+    return -1;
+  }
+  else {
+    cout << " setpoint is " << sum << "!" << endl;
+    return sum;
+  }
+}
+
+// Function for second case 
+int throwdice2(int setpoint) {  
+    while (true){
     int roll1 = rolldie();
     int roll2 = rolldie();
     int sum = roll1 + roll2;
 
     cout << "Player rolled " << roll1 << " + " << roll2 << " = " << sum;
 
-    if (setpoint == 0) { // First roll
-        if (sum == 7 || sum == 11){
-            cout << " Player wins!" << endl;
-            return 0;
-        }
-        else if (sum == 2 || sum == 3 || sum == 12) {
-            cout << " House wins!" << endl;
-            return -1;
-        }
-        else {
-            setpoint = sum;
-            cout << " setpoint is " << setpoint << "!" << endl;
-        }
-    } else { // After first rolls
-        if (sum == setpoint) {
-            cout << " Player wins!" << endl;
-            return 0;
-        } else if (sum == 7 || sum == 12) {
-            cout << " House wins!" << endl;
-            return -1;
-        } else {
-            cout << " roll again" << endl;
-        }
+      if (sum == setpoint){
+        cout << " Player wins!" << endl;
+        return 0;
+      } 
+      else if (sum == 7 || sum == 12){
+        cout << " House wins!" << endl;
+        return -1;
+      }
+      else {
+        cout << " roll again" << endl;
+      }
     }
 
-    return sum;
 }
 
 int main() {
@@ -61,20 +73,18 @@ int main() {
     cout << "Enter seed value: ";
     cin >> seed;
     srand(seed);
-    int setpoint = 0; 
-    char playAgain;
-    while (true) {
-        int result;
-        while (true) {
-            result = throwdice(setpoint);
-            if (result == 0 || result == -1)
-                break;
-        }
+    bool play = true;
 
-        cout << "Play again? (y/n): ";
-        cin >> playAgain;
-        if (playAgain != 'y'){
-            break;
+    while (play) {
+        int result = throwdice();
+        if (result != 0 && result != -1){
+          throwdice2(result); 
+        }
+        cout << "Play again? ";
+        char play2;
+        cin >> play2;
+        if (play2 != 'y'){
+          play = false;
         }
     }
 
