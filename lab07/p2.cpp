@@ -1,6 +1,6 @@
 /*Author: MIDN Ronny Saini
- *Filename: p1.cpp
- *Array Functions
+ *Filename: p2.cpp
+ *Swap it
  */
 
 #include <iostream>
@@ -59,56 +59,6 @@ int main()
   return 0;
 }
 
-int* read(int N){
-
-  int* A = new int[N];
-  char junk;
-  cin >> junk;
-  int x;
-
-  for (int i = 0; i < N; i++){
-    cin >> x;
-    A[i] = x;
-  }
-
-  return A;
-}
-
-int print(int* A, int N){
-
-int main()
-{
-  cout << "Welcome to SWARE!" << endl << "board> ";
-  char c;
-  int N;
-  cin >> c >> c >> N;
-
-  int* A = read(N);
-  cout << endl << endl;
-  print(A,N);
-
-  string z;
-  char x,y;
-  int count = 0;
-  while (!isInOrder(A,N)){
-    cout << "> ";
-    cin >> z; 
-    if (z == "swap"){
-      cin >> x >> y;
-      A = swap(A, x, y);
-      cout << endl << endl;
-      print(A, N);
-      count++;
-    } else {
-      cout << "Unknown move '" << z << "'" << endl << endl;
-      print (A, N);
-    }
-  }
-  
-  cout << count*3 << " points! (" << count << " moves)" << endl;
-  delete [] A;
-  return 0;
-}
 
 int* read(int N){
 

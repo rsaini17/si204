@@ -1,6 +1,6 @@
 /*Author: MIDN Ronny Saini
- *Filename: p3.cpp
- *Reverse It!
+ *Filename: p4.cpp
+ *Graphical
  */
 
 #include <iostream>
@@ -12,7 +12,7 @@ int print(int* A, int N);
 bool isInOrder(int*A, int N);
 int* swap(int* A, char x, char y);
 int* reverse(int* A, char x, char y);
-
+int findMax(int* A, int N);
 
 int main()
 {
@@ -73,17 +73,17 @@ int* read(int N){
 
 int print(int* A, int N){
   char x = 'A' - 1;
-    int maxElement = findMax(A, N);
-    for (int i = maxElement; i > 0; i--) {
-        for (int j = 0; j < N; j++) {
-            if (A[j] >= i) {
-                cout << " #";
-            } else {
-                cout << "  ";
-            }
-        }
-        cout << endl;
-    } 
+  int max = findMax(A, N);
+  for (int i = max; i > 0; i--) {
+      for (int j = 0; j < N; j++) {
+          if (A[j] >= i) {
+              cout << " #";
+          } else {
+              cout << "  ";
+          }
+      }
+      cout << endl;
+  } 
   for (int i = 0; i < 2*N+1; i++){
     cout << "-";
   }
@@ -131,11 +131,11 @@ int* reverse(int* A, char x, char y){
 }
 
 int findMax(int* A, int N) {
-    int max = A[0];
+    int x = A[0];
     for (int i = 1; i < N; ++i) {
-        if (A[i] > max) {
-            max = A[i];
+        if (A[i] > x) {
+            x = A[i];
         }
     }
-    return max;
+    return x;
 }
