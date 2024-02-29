@@ -72,11 +72,18 @@ int* read(int N){
 }
 
 int print(int* A, int N){
-  char x = 'A'-1;
-  for (int i = 0; i < N; i++){
-    cout << " " << A[i];
-  }
-  cout << endl;
+  char x = 'A' - 1;
+    int maxElement = findMax(A, N);
+    for (int i = maxElement; i > 0; i--) {
+        for (int j = 0; j < N; j++) {
+            if (A[j] >= i) {
+                cout << " #";
+            } else {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    } 
   for (int i = 0; i < 2*N+1; i++){
     cout << "-";
   }
@@ -123,3 +130,12 @@ int* reverse(int* A, char x, char y){
   return A;
 }
 
+int findMax(int* A, int N) {
+    int max = A[0];
+    for (int i = 1; i < N; ++i) {
+        if (A[i] > max) {
+            max = A[i];
+        }
+    }
+    return max;
+}
