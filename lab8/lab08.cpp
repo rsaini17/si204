@@ -77,7 +77,7 @@ void printSpaced(string s){
 string mkShadowString(string s){
   string ans;
   for(int i = 0; i < s.length(); i++){
-    ans += "-";
+    ans += "_";
   }
   return ans;
 }
