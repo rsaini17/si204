@@ -22,11 +22,9 @@ int main(){
      string airport1, airport2;
      for (int j = 0; j < 3; j++){
        airport1 += s[j];
-       cout << "a1: " << airport1 << endl;
      }
      for (int z = s.length()-3; z < s.length(); z++){
        airport2 += s[z];
-       cout << "a2: " << airport2 << endl;
      }
      if(i == 0){
        airports[0] = airport1;
@@ -40,19 +38,23 @@ int main(){
           airports[1] = airport2;
         }
      }
-     reverse[i] = airport2 + "->" + airport1;
+     if (i == 0){
+       reverse[i] = airport2 + "->" + airport1;
+     } else {
+       reverse[i] = airport2;
+     }
   }
  
   cout << "Reverse trip: ";
 
-  for(int i = 0; i <= legs; i++){
-    if(i == legs){
-      cout << reverse[i] << endl;
-    } else {
-      cout << reverse[i] << "->";
+ for (int i = legs - 1; i >= 0; i--) {
+        cout << reverse[i];
+        if (i > 0) {
+            cout << "->";
+        }
     }
-  }
 
+    cout << endl; 
   delete[] reverse;
   delete[] airports;
 
