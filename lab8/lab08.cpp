@@ -1,3 +1,7 @@
+/*Author: MIDN Ronny Saini
+ *Filename: lab08.cpp
+ *Tester functions
+*/
 #include <iostream>
 #include <fstream>
 #include <string>
