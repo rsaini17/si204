@@ -21,22 +21,11 @@ int main(){
   
   for (int i = 0; i < street; i++){
     for (int j = 0; j < avenue; j++){
-      A[i][j] = 0;
+      cin >> A[i][j];
     }
-  }
+  }  
 
-  A[1][0] = 1;
-  A[2][4] = 4;
-  A[5][0] = 1;
-  A[7][2] = 3;
-
-  for (int i = 0; i < street; i++){
-    for (int j = 0; j < avenue; j++){
-      cout << A[i][j] << " ";
-    }
-    cout << endl;
-  }
-  
+    
   string cmd;
   while( cout << "> " && cin >> cmd && cmd != "quit" ){
     int street2, avenue2;
@@ -51,4 +40,10 @@ int main(){
   }
 
   }
+
+
+  for (int i = 0; i < street; i++){
+    delete [] A[i];
+  }
+  delete [] A;
 }
