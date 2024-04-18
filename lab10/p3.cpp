@@ -2,62 +2,70 @@
 #include <unistd.h>
 #include <cstdlib>
 #include "easycurses.h"
+
 using namespace std;
 
-struct letter {
-  char l;
-  int x, y;
+// Struct to represent a character with its position and direction
+struct Letter {
+    char l;
+    int x, y;
+    int directionY, directionX; // Direction of movement
 };
 
-void inputLetter(letter &l){
-  char junk;
-  cin >> l.l >> junk >> l.x >> junk >> l.y >> junk;
+// Function to input a character with its position
+void inputLetter(Letter &l) {
+    char junk;
+    cin >> l.l >> junk >> l.x >> junk >> l.y >> junk;
+    // Set initial direction to move right (east)
+    l.directionY = 0;
+    l.directionX = 1;
+}
+
+// Function to move a character one step based on its direction
+void moveLetter(Letter &l) {
+    l.x += l.directionY;
+    l.y += l.directionX;
 }
 
 int main() {
-  int numLetters;
-  cin >> numLetters;
-  letter* letters = new letter[numLetters];
-  for (int i = 0; i < numLetters; i++){
-    inputLetter(letters[i]);
-  }
+    int numLetters;
+    cin >> numLetters;
+    Letter* letters = new Letter[numLetters];
 
-  startCurses();
-
-  for (int i = 0; i < numLetters; i++){
-    drawCharAndRefresh(letters[i].l, letters[i].x, letters[i].y);
-    usleep(800000);
-  }
-
-  for (int i = 0; i < numLetters; i++){
-    drawChar(' ', letters[i].x, letters[i].y);
-  }
-  refreshWindow();
-  usleep(800000);
-
-  char c;
-
-  c = inputChar();
-  if (c == 'q') {
-    endCurses();
-  }
-  else {
-    for (int i = 0; i < numLetters; i++){
-      drawCharAndRefresh(letters[i].l, letters[i].x, letters[i].y);
-      usleep(800000);
+    // Input characters
+    for (int i = 0; i < numLetters; i++) {
+        inputLetter(letters[i]);
     }
 
-    for (int i = 0; i < numLetters; i++){
-      drawChar(' ', letters[i].x, letters[i].y);
+    startCurses();
+
+    // Draw initial positions of characters
+    for (int i = 0; i < numLetters; i++) {
+        drawChar(letters[i].l, letters[i].x, letters[i].y);
     }
     refreshWindow();
-    usleep(800000);
-  }
 
-  endCurses();
+    usleep(80000);
 
-  delete [] letters;
+    // Animation loop
+    for (int frame = 0; frame < 20; frame++) {
+        // Move all characters one step
+        for (int i = 0; i < numLetters; i++) {
+            // Erase character from old position
+            drawChar(' ', letters[i].x, letters[i].y);
+            // Move character
+            moveLetter(letters[i]);
+            // Draw character in new position
+            drawChar(letters[i].l, letters[i].x, letters[i].y);
+        }
 
-  return 0;
+        refreshWindow();
+        usleep(80000); // Sleep for 0.08 sec
+    }
+
+    endCurses();
+
+    delete [] letters;
+
+    return 0;
 }
-
