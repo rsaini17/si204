@@ -1,4 +1,6 @@
-#include "hhmmss.cpp"
+#include <iostream>
+#include "hhmmss.h"
+using namespace std;
 
 istream& operator >> (istream& is, hhmmss& T)
 {
@@ -8,7 +10,7 @@ istream& operator >> (istream& is, hhmmss& T)
 
 bool operator<(hhmmss a, hhmmss b)
 {
-  int at = a.h*3600 + a.m*60 + a.s;
-  int bt = b.h*3600 + b.m*60 + b.s;
-  return at < bt; 
+  int at = a.h * 3600 + a.m * 60 + a.s;
+  int bt = b.h * 3600 + b.m * 60 + b.s;
+  return at < bt;
 }

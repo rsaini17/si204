@@ -1,4 +1,6 @@
+#include <iostream>
 #include "point.h"
+using namespace std;
 
 istream& operator >> (istream& is, point &p)
 {
