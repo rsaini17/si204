@@ -1,7 +1,7 @@
 p1: p1.cpp
-	g++ .... CHANGE THIS LINE AND LINES BELOW  
+	g++ p1.cpp easycurses.cpp -l ncurses -o p1  
 p2: 
-
+	g++ p2.cpp easycurses.cpp -l ncurses -o p2
 p3:
 
 p4:
